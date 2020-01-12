@@ -31,14 +31,14 @@ tags:
 Mac 默认安装了 Python 2.7 版本，但考虑到 3.x 已经非常成熟，我还是通过 Brew 安装了 3.7 版本。在命令行中为区分原 python 命令，使用python3 映射到 3.7 的解释器。相应的 pip 命令则为 pip3。
 
 ```
-$ pip install ...
+$ pip3 install ...
 ```
 
 # NumPy
 ## 第一段代码
 通过如下命令安装 NumPy：
 ```
-$ pip install numpy
+$ pip3 install numpy
 ```
 
 脚本中使用如下语法引入 NumPy
