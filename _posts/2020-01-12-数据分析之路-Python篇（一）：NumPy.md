@@ -368,4 +368,38 @@ print(np.average(arr,weights=wts))
 ```
 average() 函数可以求加权平均，加权平均的意思就是每个元素可以设置个权重，默认情况下每个元素的权重是相同的，所以 np.average(arr)=(1+2+3+4)/4=2.5，你也可以指定权重数组 wts=[1,2,3,4]，这样加权平均 np.average(arr,weights=wts)=(1*1+2*2+3*3+4*4)/(1+2+3+4)=3.0。
 
+#### 统计数组中的标准差 std()、方差 var()
+```python
+print(np.std(arr))
+print(np.var(arr))
+```
+结果输出：
+```
+1.118033988749895
+1.25
+```
+方差的计算是指每个数值与平均值之差的平方求和的平均值，即 mean((x - x.mean())** 2)。标准差是方差的算术平方根。在数学意义上，代表的是一组数据离平均值的分散程度。所以 np.var(arr)=1.25, np.std(arr)=1.118033988749895。
+
 ### NumPy 排序
+数据处理过程中，排序是非常常见的操作，因此 NumPy 对于排序操作也有预设的方法：
+```python
+aSort = np.array([[4,3,2],[2,4,1]])
+print(np.sort(aSort))
+print(np.sort(aSort, axis=None))
+print(np.sort(aSort, axis=0))
+print(np.sort(aSort, axis=1))
+```
+结果输出：
+```
+[[2 3 4]
+ [1 2 4]]
+[1 2 2 3 4 4]
+[[2 3 1]
+ [4 4 2]]
+[[2 3 4]
+ [1 2 4]]
+```
+这里你可以使用 sort 函数，sort(aSort, axis=-1, kind=‘quicksort’, order=None)，默认情况下使用的是快速排序；在 kind 里，可以指定 quicksort、mergesort、heapsort 分别表示快速排序、合并排序、堆排序。同样 axis 默认是 -1，即沿着数组的最后一个轴进行排序，也可以取不同的 axis 轴，或者 axis=None 代表采用扁平化的方式作为一个向量进行排序。另外 order 字段，对于结构化的数组可以指定按照某个字段进行排序。
+
+## 总结
+NumPy 在创建数组、数组运算和排序上十分简便，当然这里的数据例子也是非常简单的，在处理复杂数据的时候往往需要进行组合使用。后续在实战中将对此进行深入应用并记录下来。
