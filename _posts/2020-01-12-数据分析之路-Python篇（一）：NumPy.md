@@ -12,30 +12,30 @@ tags:
     - Python
 ---
 
-# 前言
+## 前言
 在数据分析得工作中，对于数据的处理、清洗是占据了80%的工作的，而如果掌握了 Python 这门语言，借助其丰富的第三方库可以帮助我们以极高的效率来完成对数据预处理的工作。
 
 我在[极客时间](https://time.geekbang.org/)上学习了陈旸的[《数据分析实战45讲》](https://time.geekbang.org/column/intro/147)，数据分析之路的前几篇文章就将记录下有关Python的学习心得。
 
-# 工具说明
+## 工具说明
 我使用的工作本是 Mackbook Pro，因此所有的软件环境和相关配置操作均以 OS X 操作系统为准。
 
-## 编辑器
+#### 编辑器
 编辑器沿用之前的习惯，Mac 下的 VSCode 是万精油，连 Java 都能搞，Python 不在话下。简单安装了 Python 的几个常用插件就可以上手使用了。
 
 我这里安装了：
 - Python
 - Visual Studio IntelliCode (需要配置 Python 路径)
 
-## Python 版本
+#### Python 版本
 Mac 默认安装了 Python 2.7 版本，但考虑到 3.x 已经非常成熟，我还是通过 Brew 安装了 3.7 版本。在命令行中为区分原 python 命令，使用python3 映射到 3.7 的解释器。相应的 pip 命令则为 pip3。
 
 ```
 $ pip3 install ...
 ```
 
-# NumPy
-## 第一段代码
+## NumPy
+#### 第一段代码
 通过如下命令安装 NumPy：
 ```
 $ pip3 install numpy
@@ -107,7 +107,7 @@ print(b.dtype)
 print(b)
 ```
 
-## 定义结构数组
+#### 定义结构数组
 上段的代码创建的数组是以数字作为下标的，如果希望生成一个具有属性含义的下标数组，则需要通过定义结构数组来实现，代码如下：
 ```python
 import numpy as np
