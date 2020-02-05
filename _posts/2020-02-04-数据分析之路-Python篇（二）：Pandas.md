@@ -370,5 +370,36 @@ print(df)
 4  典韦  80  90  90.0  260.0
 ```
 
+在练习中，我根据评论中其他人的写法，又调整了程序，并增加了一个需求是增加一行数据，用于总计语文、数学、英语、总分的总和。代码如下：
+```python
+import pandas as pd
+from pandas import Series, DataFrame
+score = DataFrame(pd.read_excel('data.xlsx'), columns=['姓名', '语文', '数学', '英语'])
+
+# 张飞的英语是 NaN, 这里给 NaN 赋予默认值 0。一般数据分析的场景下，也可以使用平均值或者中位数来填充无法获取的数据。
+
+score['英语'].fillna(0, inplace=True)
+
+score['总分'] = score.sum(axis=1)
+
+df1 = score.sum(axis=0).drop(index='姓名')
+df2 = score.append(df1, ignore_index=True)
+
+df2['姓名'].fillna('总计', inplace=True)
+
+print(df2)
+```
+
+结果输出：
+```
+   姓名   语文   数学     英语      总分
+0  张飞   66   65    0.0   131.0
+1  关羽   95   85   98.0   278.0
+2  赵云   95   92   96.0   283.0
+3  黄忠   90   88   77.0   255.0
+4  典韦   80   90   90.0   260.0
+5  总计  426  420  361.0  1207.0
+```
+
 ## 总结
 今天根据教程，尝试对一个数据表进行程序级别的数据批量处理，这里使用的都是基础方法，在实际的数据准备过程中，数据清洗将会有更多的复杂情况，但基本都是这些方法的组合使用。
